@@ -1,0 +1,43 @@
+The CSS specificity rules can sometimes lead to unexpected results, particularly when dealing with complex stylesheets or inherited styles.  For example, consider this situation:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+#unique {
+  color: green;
+}
+
+#unique.special {
+  color: purple; /* This will override the other rules due to ID selector specificity */
+}
+```
+
+In this case, even though the element has both the `special` class and `unique` ID, the `#unique.special` rule overrides the others because ID selectors have the highest specificity.  This can be hard to debug if you're not aware of CSS specificity rules.
+
+Another example is unexpected inheritance:
+
+```css
+body {
+  font-family: sans-serif;
+}
+
+p {
+  font-family: serif;
+}
+
+.override {
+  font-family: monospace !important;
+}
+
+<p class="override">This text will be monospace, but other paragraphs using serif</p>
+```
+
+This will make only the specific paragraph with the class use monospace, and the `!important` overrides the specificity, but it doesn't affect other paragraphs.
+
+The main reason this is uncommon is that it is often solved by better CSS structuring and using the developer tools to check selector specificity and inheritance. But it is worth remembering.
