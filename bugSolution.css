@@ -1,0 +1,35 @@
+/* bugSolution.css */
+
+/* Improved specificity handling */
+
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+#unique {
+  color: green;
+}
+
+/* More specific rule to avoid confusion */
+#unique.special {
+  color: purple;
+}
+
+/* Improved inheritance handling - more specific classes for better readability*/
+body {
+  font-family: sans-serif;
+}
+
+p {
+  font-family: serif;
+}
+
+.override {
+  font-family: monospace;
+}
+
+/* avoid unnecessary use of !important */
